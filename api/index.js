@@ -1,3 +1,4 @@
+//test us here
 export const config = { runtime: "edge" };
 
 const TARGET_BASE = (process.env.TARGET_DOMAIN || "").replace(/\/$/, "");
@@ -29,6 +30,7 @@ export default async function handler(req) {
       pathStart === -1 ? TARGET_BASE + "/" : TARGET_BASE + req.url.slice(pathStart);
 
     const out = new Headers();
+    
     let clientIp = null;
     for (const [k, v] of req.headers) {
       if (STRIP_HEADERS.has(k)) continue;
